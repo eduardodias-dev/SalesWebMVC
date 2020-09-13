@@ -7,23 +7,20 @@ using System.Threading.Tasks;
 
 namespace SalesWebMVC.Services
 {
-    public class SellerService
+    public class ClientService
     {
-        //Injeção de dependência
         private readonly SalesWebMVCContext _context;
-
-        //Ao colocar o context como parâmetro do construtor, o Startup da aplicação irá inserir o context para todos os que estiverem como AddScoped
-        public SellerService(SalesWebMVCContext context)
+        public ClientService(SalesWebMVCContext context)
         {
             _context = context;
         }
 
-        public List<Seller> FindAll()
+        public List<Client> ListAll()
         {
-            return _context.Seller.ToList();
+            return _context.Client.ToList();
         }
 
-        public void Insert(Seller obj)
+        public void Insert(Client obj)
         {
             _context.Add(obj);
             _context.SaveChanges();
