@@ -7,6 +7,16 @@ namespace SalesWebMVC.Models
 {
     public class Client
     {
+        public Client() { }
+        public Client(int id, string name, string email, DateTime birthDate, string address)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            BirthDate = birthDate;
+            Address = address;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
