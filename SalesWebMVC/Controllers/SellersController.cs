@@ -66,5 +66,20 @@ namespace SalesWebMVC.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Seller seller = _sellerService.Details(id.Value);
+            if(seller == null)
+            {
+                return NotFound();
+            }
+            return View(seller);
+        }
     }
 }
