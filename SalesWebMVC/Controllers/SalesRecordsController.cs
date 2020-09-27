@@ -27,9 +27,9 @@ namespace SalesWebMVC.Controllers
             return View(sales);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var sellers = _sellerService.FindAll();
+            var sellers = await _sellerService.FindAllAsync();
             SalesRecord sale = new SalesRecord();
             SalesRecordFormViewModel viewModel = new SalesRecordFormViewModel { Sellers = sellers, SalesRecord = sale };
             
